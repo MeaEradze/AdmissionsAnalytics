@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Admissions.Api/Admissions.Api.csproj" />
+    <Project Path="src/Admissions.Application/Admissions.Application.csproj" />
+    <Project Path="src/Admissions.Domain/Admissions.Domain.csproj" />
+    <Project Path="src/Admissions.Infrastructure/Admissions.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Admissions.Tests/Admissions.Tests.csproj" />
+  </Folder>
+</Solution>
