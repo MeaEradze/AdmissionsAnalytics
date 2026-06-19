@@ -42,12 +42,14 @@ const COLORS = [
 function ProgramMultiSelector({
   selectedIds,
   selectedNames,
+  year,
   onAdd,
   onRemove,
 }: {
   selectedIds: number[]
 
   selectedNames: Map<number, string>
+  year: number
   onAdd: (id: number, name: string) => void
   onRemove: (id: number) => void
 }) {
@@ -55,7 +57,9 @@ function ProgramMultiSelector({
   const [open, setOpen] = useState(false)
 
   const term = useDebouncedValue(search, 300).trim()
-  const { data, isFetching } = usePrograms({ search: term || undefined, pageSize: 20 })
+  // Scope the list to the selected year and request all programs (not just the first 20)
+  // so every university with data for that year is available to pick.
+  const { data, isFetching } = usePrograms({ search: term || undefined, year, pageSize: 1000 })
   const filtered = (data?.data ?? []).filter((p) => !selectedIds.includes(p.id))
 
   return (
@@ -168,6 +172,7 @@ function CompareContent() {
       <ProgramMultiSelector
         selectedIds={selectedIds}
         selectedNames={selectedNames}
+        year={year}
         onAdd={addProgram}
         onRemove={removeProgram}
       />

@@ -19,7 +19,7 @@ public sealed record GetProgramsQuery(
     int Page = 1,
     int PageSize = 20) : IRequest<PagedResponse<ProgramListItemDto>>
 {
-    public const int MaxPageSize = 100;
+    public const int MaxPageSize = 1000;
 }
 
 public sealed class GetProgramsHandler : IRequestHandler<GetProgramsQuery, PagedResponse<ProgramListItemDto>>

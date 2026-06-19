@@ -1,0 +1,11 @@
+# .NET build artifacts
+bin/
+obj/
+*.user
+
+# Node / Vite
+node_modules/
+web/dist/
+
+# Local env overrides (keep tracked .env as-is)
+*.local
